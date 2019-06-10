@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block titles %}
+    我的網站 | 首頁
+{% endblock %}
+
+{% block header_extends %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block nav_home_active %}active{% endblock %}
+
+
+{% block content %}
+    <h3 class="home-content">歡迎訪問我的網站!</h3>
+{% endblock %}

@@ -1,0 +1,8 @@
+* {
+    margin: 0;   /*預設邊界修改為0*/
+    padding: 0;
+}
+
+body {
+    margin-top: 80px!important;
+}

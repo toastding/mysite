@@ -1,0 +1,26 @@
+div.blog h3{
+    margin-top: 0.5em;
+}
+
+div.blog:not(:last-child) {   /*最後一行不執行*/
+    margin-bottom: 2em;
+    border-bottom: 1px solid#eee;
+    padding-bottom: 1em;
+}
+
+div.blog p.blog-info {
+    margin-bottom: 0;
+}
+
+ul.blog-info-description {
+    list-style: none; /*將標籤符號去除*/
+    margin-bottom: 1em;
+}
+
+ul.blog-info-description li {
+    display: inline-block; /*修改為行內*/
+    margin-right: 2em;
+}
+div.blog-content {
+    text-indent: 2em; /*開頭縮排*/
+}

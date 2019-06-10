@@ -1,0 +1,13 @@
+<!-- 繼承模板 -->
+{% extends "blog/blog_list.html" %}
+{% load staticfiles %} <!-- 加載靜態文件 -->
+<!-- 繼承標題區塊 -->
+{% block title %}
+{{ blog_type.type_name }}
+{% endblock %}
+
+<!-- 繼承內容區塊 -->
+{% block blog_list_title %}
+    分類：{{ blog_type.type_name }}
+    <a href="{% url 'blog_list' %}">查看全部部落格文章</a>
+{% endblock %}

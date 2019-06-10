@@ -1,0 +1,10 @@
+h3.home-content {
+    font-size: 222%;
+    color: #c7254e;
+    text-align: center; /*置中*/
+    position: absolute; /*改為絕對位置*/
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+}
