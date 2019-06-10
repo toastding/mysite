@@ -1,37 +1,34 @@
-{% load staticfiles %} <!-- 導入 staticfiles -->
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">  <!-- 對應IE瀏覽器 -->
-    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- 適應響應式設計 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 將標題區塊化 -->
     <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'css/base.css' %}"> <!-- 導入 css 文件 -->
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
 
-    {% block header_extends %}{% endblock %}  <!-- 用於擴展額外 css -->
+    {% block header_extends %}{% endblock %}
 
 </head>
 <body>
-    <!-- bootstrap 響應式導航條 -->
+
     <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <!-- 選用寬度填滿頁面的容器 -->
         <div class="container-fluid">
-            <!-- 導航條主標題 -->
             <div class="navbar-header">
                 <a class="navbar-brand" href="{% url 'home' %}">個人部落格</a>
-                <!-- 響應式下拉選單 -->
                 <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
             </div>
-            <!-- 導航條列表-->
+
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <!-- 選取的列表加入active狀態-->
+
                     <li class="{% block nav_home_active %}{% endblock %}">
                         <a href="{% url 'home' %}">首頁</a>
                     </li>
@@ -48,7 +45,7 @@
 
     {% block content %}{% endblock %}
 
-    <!-- 導入jquery和bootstrap(jquery必須在前) -->
+
     <script type="text/javascript" src="{% static 'jquery-3.3.1.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
 

@@ -13,10 +13,10 @@ class BlogType(models.Model):
 class Blog(models.Model):
     title = models.CharField(max_length=50)
     content = RichTextUploadingField()
-    author = models.ForeignKey(User, on_delete=models.CASCADE) #使用外鍵連接到使用者模組，由於刪除時則會將關聯的對象一併刪除
-    created_time = models.DateTimeField(auto_now_add = True)
-    last_updated_time = models.DateTimeField(auto_now = True)
-    blog_type = models.ForeignKey(BlogType, on_delete=models.CASCADE)  #使用外鍵連接到部落格文章類型
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    created_time = models.DateTimeField(auto_now_add=True)
+    last_updated_time = models.DateTimeField(auto_now=True)
+    blog_type = models.ForeignKey(BlogType, on_delete=models.CASCADE)
 
     def __str__(self):
         return "<Blog: %s>" % self.title
