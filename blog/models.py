@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from ckeditor_uploader.fields import RichTextUploadingField
+from read_statistic.models import ReadNumExpandMethod
 
 
 class BlogType(models.Model):
@@ -10,7 +11,7 @@ class BlogType(models.Model):
         return self.type_name
 
 
-class Blog(models.Model):
+class Blog(models.Model, ReadNumExpandMethod):
     title = models.CharField(max_length=50)
     content = RichTextUploadingField()
     author = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -23,3 +24,5 @@ class Blog(models.Model):
 
     class Meta:
         ordering = ['-created_time']
+
+

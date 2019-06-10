@@ -1,16 +1,47 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 {% load staticfiles %}
-{% block titles %}
-    我的網站 | 首頁
+
+{% block title %}
+    我的網站|首页
 {% endblock %}
 
 {% block header_extends %}
-<link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+    <script src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
 {% endblock %}
 
 {% block nav_home_active %}active{% endblock %}
 
-
 {% block content %}
-    <h3 class="home-content">歡迎訪問我的網站!</h3>
+    <h3 class="home-content">歡迎來到我的網站</h3>
+    <div id="container"></div>
+    <script>
+        var options = {
+            chart: { type: 'line' },
+            title: { text: null },
+            xAxis: {
+                categories: {{ dates|safe }},
+                tickmarkPlacement: 'on',
+            },
+            yAxis: {
+                title: { text: null },
+                labels:{ enabled: false },
+                gridLineDashStyle: 'Dash',
+            },
+            series: [{
+                name: '阅读量',
+                data: {{ read_nums }}
+            }],
+            plotOptions: {
+                line: {
+                    dataLabels: {
+                        enabled: true
+                    }
+                }
+            },
+            legend: { enabled: false },
+            credits: { enabled: false },
+        };
+        var chart = Highcharts.chart('container', options);
+    </script>
 {% endblock %}
